@@ -1,70 +1,62 @@
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
---><%-- 
-    Document   : register
-    Created on : Mar 13, 2017, 10:21:09 AM
-    Author     : Ana
---%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+<%@include file="Header.jsp" %>
 
-<html>
-    <head>
-        <link rel="stylesheet" href="style.css" type="text/css"/>
-        <title>Registration</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width">
-    </head>
-    <body>
-        <div id="content">
-        <div class="header">
-            <img src="./img/companyLogo.jpg" width="100px"  />
-            <span class="header-text">COMPANY NAME</span>
-        </div>
-        <!-- <//%=request.getServletContext().getAttribute("nav")%> -->
-            <h1>Registration form</h1>   
-         <!--  <form method="post" action="registrationController"> -->
-                <div class="form-element">
-                    <label for="name">Name</label>
-                    <input type="text" name="name" id="name" size="40">
-                </div>
-                <div class="form-element">
-                    <label for="username">Username</label>
-                    <input type="text" name="uname" id="uname">
-                </div>
-                <div class="form-element">
-                    <label for="password">Password</label>
-                    <input type="password" name="password" id="password">
-                </div>
-                <div class="form-element">
-                    <label for="rPassword">Repeat password</label>
-                    <input type="password" id="rPassword">
-                </div>
-                <div class="form-element">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email">
-                </div>
-                <div class="form-element">
-                    <label for="gender">Gender</label>
-                    Male<input type="radio" name="gender" value="male"> 
-                    Female<input type="radio" name="gender" value="female"> 
-                </div>
-                <div class="form-element">
-                    <label for="spam">Subscribe to maillist</label>
-                    <input type="checkbox" name="spam" id="spam">
-                </div> 
-                  <div class="form-element">
-                      <input type="submit" value="Submit">
-                    <input type="reset" value="Reset">
-                </div>  
-                      
-                    
-            </form>
-        </div>
-    </body>
-</html>
+    <div>
+    <form method="post" action="registrationController" id="form-submit">
+            <h3>Registration form</h3>
+              <label for="name">Name</label>
+                        <input type="text" name="name" id="name">
+                        <span class="error" style="color:red; display:none;">Name should not pe empty</span>
+              <br>
+              <label for="username">Username</label>
+                        <input type="text" name="username" id="username">
+                            <span class="error" style="color:red; display:none;">Username should not pe empty</span>
 
+              <br>
+              <label for="password">Password</label>
+                        <input type="password" name="password" id="password">
+                        <span class="error" style="color:red; display:none;">Password should not pe empty</span>
+              <br>
+              <label for="r-password">Repeat Password</label>
+                        <input type="password" name="r-password" id="r-password">
+                        <span class="error" style="color:red; display:none;">Your passwords should match</span>
+
+              <br>
+              <label for="email">Email</label>
+                    <input type="email" name="email" id="email">
+                    <span class="error" style="color:red; display:none;">Email should not be empty</span>
+          <br>
+              <label for="genderUser">Gender</label>
+                          <label for="male">Male</label>
+
+                      <input type="radio" name="sex" id="male" value="male">
+                          <label for="female">Female</label>
+
+                      <input type="radio" name="sex" id="female" value="female">
+                      <span class="error" style="color:red; display:none;">Gender should be selected</span>
+
+               <br>
+              <label for="phone">Phone</label>
+
+               <input type="number" name="phone" min="0300000000" max="0799999999" id="phone">
+               <span class="error" style="color:red; display:none;">Phone should not be empty</span>
+               <br>
+              <label for="country">Country</label>
+              <select name="country" id="country">
+                          <option value="1"> Romania</option>
+                          <option value="2">etc</option>
+                          <option value="3">etc</option>
+                          <option value="4">etc</option>
+              </select>
+                       <br>
+                <label for="mailist">Subscribe for maillist</label>
+                <input type="checkbox" name="maillist" id="maillist"> 
+                        <br>
+        <input type="submit" value="Submit" name="send">
+        <input type="reset" value="Reset" name="clear">
+
+        <span id="main-error" style="font-weight:700; color:red; display:none">Check all the errors</span>
+
+    </form>
+
+<%@include file="Footer.jsp" %>
