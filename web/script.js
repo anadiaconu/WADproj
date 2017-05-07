@@ -23,14 +23,6 @@ $( document ).ready(function() {
 						$("#password+span").hide();
 					}
 				});     
-				$( "#phone" ).blur(function() {
-					if($(this).val().length < 1){
-						$("#phone+span").show();
-					}
-					else{
-						$("#phone+span").hide();
-					}
-				});     
 				$( "#email" ).blur(function() {
 					if($(this).val().length < 1){
 						$("#email+span").show();
