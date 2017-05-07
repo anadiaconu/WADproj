@@ -36,6 +36,11 @@
                       <span class="error" style="color:red; display:none;">Gender should be selected</span>
 
                <br>
+              <label for="phone">Phone</label>
+
+               <input type="number" name="phone" min="0300000000" max="0799999999" id="phone">
+               <span class="error" style="color:red; display:none;">Phone should not be empty</span>
+               <br>
               <label for="country">Country</label>
               <select name="country" id="country">
                           <option value="1"> Romania</option>
@@ -50,7 +55,7 @@
         <input type="submit" value="Submit" name="send">
         <input type="reset" value="Reset" name="clear">
 
-        <span id="main-error" style="font-weight:700; color:red; display:none">Check all the weeors</span>
+        <span id="main-error" style="font-weight:700; color:red; display:none">Check all the errors</span>
 
     </form>
 
