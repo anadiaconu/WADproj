@@ -36,19 +36,6 @@
                       <span class="error" style="color:red; display:none;">Gender should be selected</span>
 
                <br>
-              <label for="phone">Phone</label>
-
-               <input type="number" name="phone" min="0300000000" max="0799999999" id="phone">
-               <span class="error" style="color:red; display:none;">Phone should not be empty</span>
-               <br>
-              <label for="country">Country</label>
-              <select name="country" id="country">
-                          <option value="1"> Romania</option>
-                          <option value="2">etc</option>
-                          <option value="3">etc</option>
-                          <option value="4">etc</option>
-              </select>
-                       <br>
                 <label for="mailist">Subscribe for maillist</label>
                 <input type="checkbox" name="maillist" id="maillist"> 
                         <br>
