@@ -28,6 +28,7 @@ public class Recipe implements Serializable {
     
     private String name = null;
     private String description = null;
+    private String path = null;
         
     @ManyToOne(cascade = CascadeType.PERSIST)
     private User owner = null;
@@ -36,9 +37,10 @@ public class Recipe implements Serializable {
         
     }
     
-    public Recipe (String name, String description, User owner){
+    public Recipe (String name, String description, String path, User owner){
         this.name = name;
         this.description = description;
+        this.path = path;
         this.owner = owner;
     }
     public int getId() {
@@ -72,10 +74,14 @@ public class Recipe implements Serializable {
     public void setOwner(User owner) {
         this.owner = owner;
     }
-    
-    
 
-    
+    public String getPath() {
+        return path;
+    }
+
+    public void setPath(String path) {
+        this.path = path;
+    }
     
     
 }
