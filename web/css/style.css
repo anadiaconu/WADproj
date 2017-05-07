@@ -1,0 +1,50 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : May 7, 2017, 12:29:19 PM
+    Author     : Diana
+*/
+
+body {
+    background-image: url("register.jpg");
+        -webkit-background-size: contain;
+        -moz-background-size: contain;
+        -o-background-size: contain;
+        background-size: contain;
+        align: center;
+    }
+    body {
+    height:100%; 
+    /*width:960px;*/ 
+    /*margin: 50px auto;*/
+    margin-left: auto; margin-right: auto;
+    font-family: 'Roboto', sans-serif !important;
+    font-weight: 100 !important;
+
+}
+
+#container {
+    width: 500px; 
+    margin:50px auto;
+}
+
+h1 {
+	display:inline;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Great Vibes', cursive;
+
+}
+
+#main-title {
+    font-family: 'Great Vibes', cursive;
+    font-size: 45px; 
+}
+
+.login-form {
+    margin:0 auto;
+}
