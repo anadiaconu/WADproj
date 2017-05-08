@@ -93,6 +93,7 @@ public class User implements Serializable {
     }
 
     public boolean checkPassword(String password) {
+        System.out.println("AAAAAAAAAAAAAA "+this.password+" "+encrypt(password));
         return encrypt(password).equals(this.password);
     }
     
@@ -127,7 +128,14 @@ public class User implements Serializable {
     public void setGender(int gender) {
         this.gender = gender;
     }
-    
+
+    public Set<Recipe> getRecipes() {
+        return recipes;
+    }
+
+    public void setRecipes(Set<Recipe> recipes) {
+        this.recipes = recipes;
+    }
     
 
 }

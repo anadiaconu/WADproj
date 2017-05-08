@@ -11,11 +11,12 @@
             <br>
             <label for="username">Username</label>
                 
-                <input type="text" id="name" name="name" placeholder="Enter Name" onchange='isAlphabet()' onfocus='onFocName()' required aria-required="true" aria-describedby="name-format"/> 
+                <input type="text" id="name" name="name" placeholder="Enter Name" required aria-required="true" aria-describedby="name-format"/> 
             <br>
             <label for="password">Password</label>
                
-                <input type="password" id="password" name="password" placeholder="Enter password" onchange='isAlphabet()' onfocus='passCheck()' required aria-required="true"/> 
+                <input type="password" id="password" name="password" placeholder="Enter password" required aria-required="true"/> 
+                <span  style="color:red;">${requestScope.passworderror}</span>
             <br>
             <input type="submit" value="Submit" name="send" class="btn btn-default btn-sm">
             <input type="reset" value="Reset" name="clear" class="btn btn-default btn-sm">

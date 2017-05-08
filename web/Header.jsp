@@ -9,6 +9,9 @@
         <title>WAD proj</title>
         <link rel="stylesheet" type="text/css" href="./css/style.css">
         
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
         <!-- FONTS-->
 
         <link href='https://fonts.googleapis.com/css?family=Great+Vibes' rel='stylesheet' type='text/css'>
@@ -20,7 +23,7 @@
         <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">-->
 
         <!-- Latest compiled and minified JavaScript -->
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+        <script src="bootstrap.min.js"></script>
     </head>
     <body>
         <div id="container" >
@@ -30,7 +33,7 @@
             </div>
             <br>
             <div align="center">
-                <a href="Login.jsp" class="btn btn-primary btn-sm"> LOGIN</a>
+                <a href="login.jsp" class="btn btn-primary btn-sm"> LOGIN</a>
                 <a href="Register.jsp" class="btn btn-primary btn-sm"> Register</a>
                 <a href="Products.jsp" class="btn btn-primary btn-sm"> View Recipes</a>
                 <a href="ShoppingCart.jsp" class="btn btn-primary btn-sm"> My Recipes</a>

@@ -9,7 +9,7 @@ and open the template in the editor.
 */
 
 body {
-    background-image: url("register.jpg");
+    background-image: url("../img/register.jpg");
         -webkit-background-size: contain;
         -moz-background-size: contain;
         -o-background-size: contain;
