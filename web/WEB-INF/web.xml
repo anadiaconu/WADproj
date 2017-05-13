@@ -68,6 +68,10 @@
         <servlet-name>purchaseView</servlet-name>
         <url-pattern>/purchaseView</url-pattern>
     </servlet-mapping> -->
+    <listener>
+        <description>ServletContextListener</description>
+        <listener-class>Servlets.contextListener</listener-class>
+    </listener>
     <servlet>
         <servlet-name>registrationController</servlet-name>
         <servlet-class>Servlets.registrationController</servlet-class>
@@ -76,6 +80,10 @@
         <servlet-name>loginController</servlet-name>
         <servlet-class>Servlets.loginController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>logoutController</servlet-name>
+        <servlet-class>Servlets.logoutController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>registrationController</servlet-name>
         <url-pattern>/registrationController</url-pattern>
@@ -83,6 +91,10 @@
     <servlet-mapping>
         <servlet-name>loginController</servlet-name>
         <url-pattern>/loginController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>logoutController</servlet-name>
+        <url-pattern>/logoutController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

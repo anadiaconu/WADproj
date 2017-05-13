@@ -1,30 +1,23 @@
+package Servlets;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Servlets;
 
-import Models.User;
 import java.io.IOException;
 import java.io.PrintWriter;
-import javax.annotation.Resource;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.transaction.UserTransaction;
 
 /**
  *
- * @author Ana
+ * @author root
  */
-@WebServlet(name = "loginController")
-public class loginController extends HttpServlet {
+public class logoutController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -37,34 +30,11 @@ public class loginController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        String username = request.getParameter("name");
-        String password = request.getParameter("password");
-        
-        User u = userExists(username);
-        if(u!=null)
-        {
-            if (u.checkPassword(password)){
-                request.getSession().setAttribute("user", u);
-                contextListener.updateNav(request);
-                request.getRequestDispatcher("Register.jsp").forward(request, response);
-                return;
-            }
-        }
-        request.setAttribute("passworderror", "Password not matching the username!");
+        request.getSession().removeAttribute("user");
+        contextListener.updateNav(request);
         request.getRequestDispatcher("login.jsp").forward(request, response);
     }
-    @PersistenceContext (unitName = "WADprojPU")
-    private EntityManager em;
-        
-    @Resource
-    private UserTransaction userT;
-    public User userExists (String user){
-            Query q = em.createQuery("SELECT u FROM User u WHERE u.username='"+user+"'");
-            if(q.getResultList().isEmpty())
-                return null;
-            return (User)q.getResultList().get(0);
-        }
+
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.

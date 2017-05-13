@@ -32,10 +32,4 @@
                 <h1 id="main-title">to my cooking blog</h1>
             </div>
             <br>
-            <div align="center">
-                <a href="login.jsp" class="btn btn-primary btn-sm"> LOGIN</a>
-                <a href="Register.jsp" class="btn btn-primary btn-sm"> Register</a>
-                <a href="Products.jsp" class="btn btn-primary btn-sm"> View Recipes</a>
-                <a href="ShoppingCart.jsp" class="btn btn-primary btn-sm"> My Recipes</a>
-                <a href="logoutController" class="btn btn-primary btn-sm"> LOGOUT</a>
-            </div>
+           ${applicationScope.nav} 
