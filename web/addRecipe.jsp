@@ -3,7 +3,7 @@
 
     <div>
     <form method="post" action="registrationController" id="form-submit">
-            <h3>Registration form</h3>
+            <h3>Add recipe form</h3>
               <label for="Rname">Recipe Name</label>
                         <input type="text" name="Rname" id="Rname">
                         <span class="error" style="color:red; display:none;">Recipe should not pe empty</span>
