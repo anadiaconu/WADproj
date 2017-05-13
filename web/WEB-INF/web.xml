@@ -95,7 +95,7 @@
     <servlet-mapping>
         <servlet-name>logoutController</servlet-name>
         <url-pattern>/logoutController</url-pattern>
-    </servlet-mapping>
+    </servlet-mapping> 
     <session-config>
         <session-timeout>
             30
