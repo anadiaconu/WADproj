@@ -5,13 +5,13 @@
  */
 package Servlets;
 
+import Models.Recipe;
 import Models.User;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.annotation.Resource;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -23,8 +23,8 @@ import javax.transaction.UserTransaction;
  *
  * @author Ana
  */
-@WebServlet(name = "registrationController")
-public class registrationController extends HttpServlet {
+@WebServlet(name = "addController")
+public class addController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -37,59 +37,44 @@ public class registrationController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String name = request.getParameter("name");
-        String username = request.getParameter("username");
-        String email = request.getParameter("email");
-        String gender = request.getParameter("gender");
-        String maillist = request.getParameter("maillist");
+       
+               
+        String name = request.getParameter("Rname");
+        String description = request.getParameter("description");
+        String time = request.getParameter("time");
+        String path = request.getParameter("path");
+        String difficulty = request.getParameter("difficulty");
+        User user = (User)request.getSession().getAttribute("user");
         
-        int gen = 0;
-        System.out.println(gender);
-        if("male".equals(gender)) gen=0;
-        else if("female".equals(gender)) gen=1;
+        int diff = 0;
+        if("easy".equals(difficulty)) diff = 0;
+        else if("difficult".equals(difficulty)) diff = 1;
         
-        String mail = "0";
-        if(maillist != null) mail = "1";
-        
-        String password = request.getParameter("password");
-        
-        if(userExists(username)!=null){
-            request.setAttribute("usernameerror", "Username already in use!");
-            request.getRequestDispatcher("Register.jsp");
-            return;
+        Recipe r = new Recipe (name, description, time, path, diff, user);
+        addRecipe(r);
+        request.getRequestDispatcher("recipesView").forward(request, response);
         }
-        User u = new User (name, username, password, email, gen);
-        addUser(u);
-        
-        request.getRequestDispatcher("recipes.jsp").forward(request, response);
-    }
-        @PersistenceContext (unitName = "WADprojPU")
-        private EntityManager em;
-        
-        @Resource
-        private UserTransaction userT;
     
-        public boolean addUser(User u){
-         try {
-            userT.begin();
+    @PersistenceContext (unitName = "WADprojPU")
+    private EntityManager em;
+        
+    @Resource
+    private UserTransaction recipeT;
+        
+    public boolean addRecipe(Recipe r){
+        try {
+            recipeT.begin();
             em.getTransaction().begin();
-            em.persist(u);
+            em.persist(r);
             em.flush();
             em.getTransaction().commit();
-            userT.commit();
+            recipeT.commit();
         } catch (Exception ex) {
             return false;
         }
         return true;   
         }
-        
-        public User userExists (String user){
-            Query q = em.createQuery("SELECT u FROM User u WHERE u.username='"+user+"'");
-            if(q.getResultList().isEmpty())
-                return null;
-            return (User)q.getResultList().get(0);
-        }
-        
+
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.

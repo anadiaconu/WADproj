@@ -5,26 +5,21 @@
  */
 package Servlets;
 
-import Models.User;
 import java.io.IOException;
 import java.io.PrintWriter;
-import javax.annotation.Resource;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.naming.NamingException;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.transaction.UserTransaction;
 
 /**
  *
  * @author Ana
  */
-@WebServlet(name = "registrationController")
-public class registrationController extends HttpServlet {
+public class myRecipesController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -37,59 +32,18 @@ public class registrationController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String name = request.getParameter("name");
-        String username = request.getParameter("username");
-        String email = request.getParameter("email");
-        String gender = request.getParameter("gender");
-        String maillist = request.getParameter("maillist");
-        
-        int gen = 0;
-        System.out.println(gender);
-        if("male".equals(gender)) gen=0;
-        else if("female".equals(gender)) gen=1;
-        
-        String mail = "0";
-        if(maillist != null) mail = "1";
-        
-        String password = request.getParameter("password");
-        
-        if(userExists(username)!=null){
-            request.setAttribute("usernameerror", "Username already in use!");
-            request.getRequestDispatcher("Register.jsp");
-            return;
-        }
-        User u = new User (name, username, password, email, gen);
-        addUser(u);
-        
-        request.getRequestDispatcher("recipes.jsp").forward(request, response);
-    }
-        @PersistenceContext (unitName = "WADprojPU")
-        private EntityManager em;
-        
-        @Resource
-        private UserTransaction userT;
     
-        public boolean addUser(User u){
-         try {
-            userT.begin();
-            em.getTransaction().begin();
-            em.persist(u);
-            em.flush();
-            em.getTransaction().commit();
-            userT.commit();
-        } catch (Exception ex) {
-            return false;
+        String user = (String)request.getSession().getAttribute("user");
+        System.out.println(request.getSession().getId());
+        try {
+            request.setAttribute("recipes", contextListener.getAllUserRecipes(user, request));
+        } catch (NamingException ex) {
+            Logger.getLogger(myRecipesController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return true;   
-        }
+        request.getRequestDispatcher("myRecipes.jsp").forward(request, response);
         
-        public User userExists (String user){
-            Query q = em.createQuery("SELECT u FROM User u WHERE u.username='"+user+"'");
-            if(q.getResultList().isEmpty())
-                return null;
-            return (User)q.getResultList().get(0);
-        }
-        
+    }
+
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.

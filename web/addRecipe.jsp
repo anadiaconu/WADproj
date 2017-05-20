@@ -10,7 +10,7 @@
                         <span class="error" style="color:red; display:none;">Recipe should not be empty</span>
               <br>
               <label for="description">Description</label>
-                        <input type="textarea" name="description" id="description" >
+                        <input type="textarea" name="description" id="description">
                             <span class="error" style="color:red; display:none;">Description should not be empty</span>
 
                             
