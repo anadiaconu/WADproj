@@ -11,6 +11,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -27,21 +28,25 @@ public class Recipe implements Serializable {
     private int id;
     
     private String name = null;
+    @Lob
     private String description = null;
+    @Lob
+    private String ingredients = null;
     private String time = null;
     private String path = null;
     private int difficulty = 0;
         
-    @ManyToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne()
     private User owner = null;
     
     public Recipe(){
         
     }
     
-    public Recipe (String name, String description, String time, String path, int difficulty,  User owner){
+    public Recipe (String name, String description,String ingredients,String time, String path, int difficulty,  User owner){
         this.name = name;
         this.description = description;
+        this.ingredients = ingredients;
         this.time = time;
         this.path = path;
         this.difficulty = difficulty;
@@ -70,6 +75,16 @@ public class Recipe implements Serializable {
     public void setDescription(String description) {
         this.description = description;
     }
+
+    public String getIngredients() {
+        return ingredients;
+    }
+
+    public void setIngredients(String ingredients) {
+        this.ingredients = ingredients;
+    }
+    
+    
 
     public User getOwner() {
         return owner;

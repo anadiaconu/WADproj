@@ -61,7 +61,7 @@ public class registrationController extends HttpServlet {
         User u = new User (name, username, password, email, gen);
         addUser(u);
         
-        request.getRequestDispatcher("recipes.jsp").forward(request, response);
+        request.getRequestDispatcher("login.jsp").forward(request, response);
     }
         @PersistenceContext (unitName = "WADprojPU")
         private EntityManager em;

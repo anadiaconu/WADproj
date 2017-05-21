@@ -29,13 +29,13 @@
                     <input type="email" name="email" id="email">
                     <span id="eemail" style="color:red; display:none;">Email format not OK!</span>
           <br>
-              <label for="genderUser">Gender</label>
+              <label for="gender">Gender</label>
                           <label for="male">Male</label>
 
-                      <input type="radio" name="sex" id="male" value="male" checked>
+                      <input type="radio" name="gender" id="male" value="male" checked>
                           <label for="female">Female</label>
 
-                      <input type="radio" name="sex" id="female" value="female">
+                      <input type="radio" name="gender" id="female" value="female">
                       
 
                <br>

@@ -47,7 +47,7 @@ public class loginController extends HttpServlet {
             if (u.checkPassword(password)){
                 request.getSession().setAttribute("user", u);
                 contextListener.updateNav(request);
-                request.getRequestDispatcher("recipes.jsp").forward(request, response);
+                request.getRequestDispatcher("recipesController").forward(request, response);
                 return;
             }
         }

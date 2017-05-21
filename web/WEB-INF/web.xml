@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
-    
     <listener>
         <description>ServletContextListener</description>
         <listener-class>Servlets.contextListener</listener-class>
@@ -25,7 +24,10 @@
         <servlet-name>myRecipesController</servlet-name>
         <servlet-class>Servlets.myRecipesController</servlet-class>
     </servlet>
-    
+    <servlet>
+        <servlet-name>recipesController</servlet-name>
+        <servlet-class>Servlets.recipesController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>registrationController</servlet-name>
         <url-pattern>/registrationController</url-pattern>
@@ -46,7 +48,10 @@
         <servlet-name>myRecipesController</servlet-name>
         <url-pattern>/myRecipesController</url-pattern>
     </servlet-mapping>
-   
+    <servlet-mapping>
+        <servlet-name>recipesController</servlet-name>
+        <url-pattern>/recipesController</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30

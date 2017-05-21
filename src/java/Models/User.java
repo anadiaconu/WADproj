@@ -34,7 +34,7 @@ public class User implements Serializable {
     private String email = null;
     private int gender = 0;
     
-    @OneToMany(cascade = CascadeType.PERSIST, mappedBy="owner")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy="owner")
     private Set<Recipe> recipes = new HashSet<Recipe>();
     
     public String encrypt(String passwordToHash){

@@ -4,21 +4,26 @@
 <%@taglib prefix='c' uri='http://java.sun.com/jsp/jstl/core'%>
 <%@include file="Header.jsp" %>
 
-    <div>
-        <script type="text/javascript" src="script.js"></script>
             <h3>My Recipes</h3>
               <c:forEach var="recipe" items="${recipes}">
-                <p> ----------------------------------------------------<br/>
+                <p> ____________________________________________________________________________<br/><br/>
                     <label>Name: &emsp;</label> ${recipe.getName()}<br/>
                     <label>Time: &emsp;</label> ${recipe.getTime()}<br/>
-                    <label>Difficulty: &emsp;</label> ${recipe.getDifficulty()}<br/>
-                    <label> <img src=${recipe.getPath()}/><br/>
+                    <label>Difficulty: &emsp;</label> 
+                    <c:if test="${recipe.getDifficulty()==0}">
+                        Easy
+                    </c:if>
+                    <c:if test="${recipe.getDifficulty()==1}">
+                        Difficult
+                    </c:if>
+                    <br/>
+                    <label>Ingredients: &emsp;</label> ${recipe.getIngredients()}<br/>
+                    <label> <img class="recimg" src="${recipe.getPath()}"/> </label><br/><br/>
                     <label>Description: &emsp;</label> ${recipe.getDescription()}<br/>
                         
                 
                 </p>
             </c:forEach>
 
-    </form>
 
 <%@include file="Footer.jsp" %>

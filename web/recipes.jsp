@@ -4,24 +4,26 @@
 <%@taglib prefix='c' uri='http://java.sun.com/jsp/jstl/core'%>
 <%@include file="Header.jsp" %>
 
-    <div>
-            <table>
-                        <tr>
-                            <td>Name</td>
-                            <td>Difficulty</td>
-                            <td>Time</td>                            
-                            <td></td>
-                            <td>Description</td>
-                            
-                        </tr>
-                        <c:forEach var="rec" items="${applicationScope.recipes.values()}">
-                            <tr>
-                                <td>${rec.getName()}</td>
-                                <td>${rec.getDifficulty()}</td>
-                                <td>${rec.getTime()}</td>
-                                <td>${rec.getPath()}</td>
-                                <td>${rec.getDescription()}</td>
-                             </tr>  
+    <h3>Our Recipes</h3>
+    <c:forEach var="recipe" items="${recipes}">
+                <p> ____________________________________________________________________________<br/><br/>
+                    <label>Name: &emsp;</label> ${recipe.getName()}<br/>
+                    <label>Time: &emsp;</label> ${recipe.getTime()}<br/>
+                    <label>Difficulty: &emsp;</label> 
+                    <c:if test="${recipe.getDifficulty()==0}">
+                        Easy
+                    </c:if>
+                    <c:if test="${recipe.getDifficulty()==1}">
+                        Difficult
+                    </c:if>
+                    <br/>
+                    <label>Ingredients: &emsp;</label> ${recipe.getIngredients()}<br/>
+                    <label> <img class="recimg" src="${recipe.getPath()}"/></label><br/><br/>
+                    <label>Description: &emsp;</label> ${recipe.getDescription()}<br/><br/>
+                    <label>Uploaded by: &emsp;</label> ${recipe.getOwner().getUsername()}<br/>
+                        
+                
+                </p>
                         </c:forEach>
 
 

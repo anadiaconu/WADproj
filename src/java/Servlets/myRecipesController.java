@@ -5,6 +5,7 @@
  */
 package Servlets;
 
+import Models.User;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.logging.Level;
@@ -33,13 +34,11 @@ public class myRecipesController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
     
-        String user = (String)request.getSession().getAttribute("user");
-        System.out.println(request.getSession().getId());
-        try {
-            request.setAttribute("recipes", contextListener.getAllUserRecipes(user, request));
-        } catch (NamingException ex) {
-            Logger.getLogger(myRecipesController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        User user = (User)request.getSession().getAttribute("user");
+        request.setAttribute("recipes", user.getRecipes());
+        System.out.println(user.getUsername());
+        System.out.println(user.getRecipes().size());
+        
         request.getRequestDispatcher("myRecipes.jsp").forward(request, response);
         
     }
