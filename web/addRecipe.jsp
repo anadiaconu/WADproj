@@ -9,7 +9,7 @@
             <input type="text" class="form-control" maxlength="255" aria-describedby="Rname-label" name="Rname" id="Rname" required>
         </div>
         <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
-        <div class="help-block with-errors"></div>
+        <div class="help-block with-errors">${requestScope.usernameerror}</div>
     </div>
     
     <div class="form-group has-feedback">
