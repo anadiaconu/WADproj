@@ -54,13 +54,13 @@ textarea {
     margin: 0;
 }
 
-.login-form {
-    margin: 0 auto;
-}
-
 .description {
     width: 300px;
     height: 150px;
+}
+
+.recimg {
+    width: 300px;
 }
 
 .page-footer {
