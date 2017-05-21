@@ -1,61 +1,70 @@
 /*
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
-*/
-/* 
     Created on : May 7, 2017, 12:29:19 PM
     Author     : Diana
 */
 
 body {
-    background-image: url("../img/register.jpg");
-        -webkit-background-size: contain;
-        -moz-background-size: contain;
-        -o-background-size: contain;
-        background-size: 100% 100%;
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-        align: center;
-    }
-    body {
-    height:100%; 
-    /*width:960px;*/ 
-    /*margin: 50px auto;*/
-    margin-left: auto; margin-right: auto;
+    background: url("../img/bg.jpg") no-repeat center center fixed;
+    background-size: cover;
     font-family: 'Roboto', sans-serif !important;
     font-weight: 100 !important;
-
 }
 
-#container {
-    width: 500px; 
-    margin:50px auto;
+.page-wrapper {
+    position: relative;
+    max-width: 680px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 25px 50px;
 }
 
-h1 {
-	display:inline;
-}
-
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4 {
     font-family: 'Great Vibes', cursive;
-
 }
 
-#main-title {
-    font-family: 'Great Vibes', cursive;
-    font-size: 45px; 
+textarea {
+    resize: vertical;
+}
+
+.branding {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: flex-end;
+    align-items: flex-end;
+    -webkit-justify-content: center;
+    justify-content: center;
+    margin: 0 0 25px 0;
+}
+
+.branding__text {
+    font: 45px/45px 'Great Vibes', cursive;
+    margin: 0;
+}
+
+.radio-space > input[type="radio"],
+.check-space > input[type="checkbox"]{
+    margin-right: 5px;
+}
+
+.radio-space > label,
+.check-space > label {
+    margin: 0;
 }
 
 .login-form {
-    margin:0 auto;
+    margin: 0 auto;
 }
 
 .description {
-  width: 300px;
-  height: 150px;
-}
-.recimg{
     width: 300px;
-    
+    height: 150px;
+}
+
+.page-footer {
+    margin: 20px 0 0 0;
+    padding-top: 5px;
+    border-top: 1px solid #000;
 }

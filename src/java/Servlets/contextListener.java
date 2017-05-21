@@ -61,15 +61,15 @@ public class contextListener implements ServletContextListener {
     {
         String nav;
         if(loggedIn) 
-             nav  =  "        <nav align=\"center\">\n" 
+             nav  =  "        <nav class=\"text-center\">\n" 
                     + "                    <a href=\"recipesController\" class=\"btn btn-primary btn-sm\">View Recipes</a>\n"
                     + "                    <a href=\"myRecipesController\" class=\"btn btn-primary btn-sm\">My Recipes</a>\n"
                     + "                    <a href=\"addRecipe.jsp\" class=\"btn btn-primary btn-sm\">Add Recipes</a>\n"
-                    + "                    <a href=\"logoutController\" class=\"btn btn-primary btn-sm\">Logout</a>\n"
+                    + "                    <a href=\"logoutController\" class=\"btn btn-danger btn-sm\">Logout</a>\n"
                     + "        </nav>\n";
-        else nav =  "        <nav align=\"center\">\n"
-                    + "                    <a href=\"Register.jsp\" class=\"btn btn-primary btn-sm\">Register</a>\n"
-                    + "                    <a href=\"login.jsp\" class=\"btn btn-primary btn-sm\">Login</a>\n"
+        else nav =  "        <nav class=\"text-center\">\n"
+                    + "                    <a href=\"login.jsp\" class=\"btn btn-success btn-sm\">Login</a>\n"
+		    + "                    <a href=\"Register.jsp\" class=\"btn btn-info btn-sm\">Register</a>\n"
                     + "                    <a href=\"recipesController\" class=\"btn btn-primary btn-sm\">View Recipes</a>\n"
                     + "        </nav>\n";
         return nav;

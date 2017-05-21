@@ -1,52 +1,67 @@
-
 <%@include file="Header.jsp" %>
 
-    <div>
+<form method="post" action="registrationController" name="regform" id="form-submit" data-toggle="validator" role="form">
+    <h2 class="form-headline">Register for free:</h2>
     
-            <h3>Registration form</h3>
-            <script type="text/javascript" src="script.js"></script>
-            <form name="regform" method="post" action="registrationController" onsubmit="return validateForm();"> 
-              <label for="name">Name</label>
-                        <input type="text" name="name" id="name">
-                        <span id="ename" style="color:red; display:none;">Name should not be empty or numeric</span>
-              <br>
-              <label for="username">Username</label>
-                        <input type="text" name="username" id="username">
-                            <span id="eusername" style="color:red; display:none;">Username is not valid</span>
-                            <span  style="color:red;">${requestScope.usernameerror}</span>
-                            
-              <br>
-              <label for="password">Password</label>
-                        <input type="password" name="password" id="password">
-                        <span id="epassword" style="color:red; display:none;">Password should not be empty</span>
-              <br>
-              <label for="r-password">Repeat Password</label>
-                        <input type="password" name="repassword" id="repassword">
-                        <span id="erepassword" style="color:red; display:none;">Your passwords should match</span>
-
-              <br>
-              <label for="email">Email</label>
-                    <input type="email" name="email" id="email">
-                    <span id="eemail" style="color:red; display:none;">Email format not OK!</span>
-          <br>
-              <label for="gender">Gender</label>
-                          <label for="male">Male</label>
-
-                      <input type="radio" name="gender" id="male" value="male" checked>
-                          <label for="female">Female</label>
-
-                      <input type="radio" name="gender" id="female" value="female">
-                      
-
-               <br>
-                <label for="mailist">Subscribe for maillist</label>
-                <input type="checkbox" name="maillist" id="maillist"> 
-                        <br>
-        <input type="submit" value="Submit">
-        <input type="reset" value="Reset" name="clear">
-
-        <span id="main-error" style="font-weight:700; color:red; display:none">Check all the errors</span>
-
-    </form>
+    <div class="form-group has-feedback">
+        <div class="input-group">
+            <span class="input-group-addon" id="name-label">Name</span>
+            <input type="text" maxlength="255" class="form-control" aria-describedby="name-label" name="name" id="name" required>
+        </div>
+        <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+        <div class="help-block with-errors"></div>
+    </div>
+    
+    <div class="form-group has-feedback">
+        <div class="input-group">
+            <span class="input-group-addon" id="username-label">Username</span>
+            <input type="text" maxlength="255" class="form-control" aria-describedby="username-label" name="username" id="username" required>
+        </div>
+        <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+        <div class="help-block with-errors"></div>
+    </div>
+    
+    <div class="form-group has-feedback">
+        <div class="input-group">
+            <span class="input-group-addon" id="email-label">Email</span>
+            <input type="email" maxlength="255" class="form-control" aria-describedby="email-label" name="email" id="email" required>
+        </div>
+        <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+        <div class="help-block with-errors"></div>
+    </div>
+    
+    <div class="form-group has-feedback">
+        <div class="input-group">
+            <span class="input-group-addon" id="password-label">Password</span>
+            <input type="password" maxlength="255" class="form-control" aria-describedby="password-label" name="password" id="password" required>
+        </div>
+        <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+        <div class="help-block with-errors"></div>
+    </div>
+    
+    <div class="form-group has-feedback">
+        <div class="input-group">
+            <span class="input-group-addon" id="repassword-label">Re-enter Password</span>
+            <input type="password" maxlength="255" class="form-control" aria-describedby="repassword-label" name="repassword" id="repassword" required>
+        </div>
+        <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+        <div class="help-block with-errors"></div>
+    </div>
+    
+    <div class="input-group">
+        <label for="gender">Gender:</label>
+        <div class="radio-space"><input type="radio" name="gender" id="male" value="male" checked><label for="male">Male</label></div>
+        <div class="radio-space"><input type="radio" name="gender" id="female" value="female"><label for="female">Female</label></div>
+    </div>
+    
+    <div class="input-group check-space">
+        <input type="checkbox" name="maillist" id="maillist" checked><label for="mailist">I want to subscribe to your newsletter!</label>
+    </div>
+    
+    <div class="row text-center">
+        <button type="submit" class="btn btn-success" name="send">Register</button>
+        <button type="reset" class="btn btn-warning" name="clear">Reset</button>
+    </div>
+</form>
 
 <%@include file="Footer.jsp" %>

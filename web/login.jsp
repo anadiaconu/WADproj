@@ -5,24 +5,32 @@
 --%>
 
 <%@include file="Header.jsp" %>
-    <div class="login-form">
-        <form method="post" action="loginController" id="form-submit">
-            <h3>Login form</h3>
-            <br>
-            <label for="username">Username</label>
-                
-                <input type="text" id="name" name="name" placeholder="Enter Name" required aria-required="true" aria-describedby="name-format"/> 
-            <br>
-            <label for="password">Password</label>
-               
-                <input type="password" id="password" name="password" placeholder="Enter password" required aria-required="true"/> 
-                <span  style="color:red;">${requestScope.passworderror}</span>
-            <br>
-            <input type="submit" value="Submit" name="send" class="btn btn-default btn-sm">
-            <input type="reset" value="Reset" name="clear" class="btn btn-default btn-sm">
-        </form>
+
+<form method="post" action="loginController" id="form-submit" data-toggle="validator">
+    <h2 class="form-headline">Please Login:</h2>
+    
+    <div class="form-group has-feedback">
+        <div class="input-group">
+            <span class="input-group-addon" id="name-label">Username</span>
+            <input type="text" maxlength="255" class="form-control" aria-describedby="name-label" name="name" id="name" required>
+        </div>
+        <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+        <div class="help-block with-errors"></div>
     </div>
+    
+    <div class="form-group has-feedback">
+        <div class="input-group">
+            <span class="input-group-addon" id="password-label">Password</span>
+            <input type="password" maxlength="255" class="form-control" aria-describedby="password-label" name="password" id="password" required>
+        </div>
+        <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+        <div class="help-block with-errors"></div>
+    </div>
+    
+    <div class="row text-center">
+        <button type="submit" class="btn btn-primary" name="send">Login</button>
+        <button type="reset" class="btn btn-warning" name="clear">Reset</button>
+    </div>
+</form>
 
-
-   
 <%@include file="Footer.jsp" %>
