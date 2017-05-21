@@ -18,7 +18,7 @@
             <input type="text" maxlength="255" class="form-control" aria-describedby="username-label" name="username" id="username" required>
         </div>
         <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
-        <div class="help-block with-errors"></div>
+        <div class="help-block with-errors">${requestScope.usernameerror}</div>
     </div>
     
     <div class="form-group has-feedback">
